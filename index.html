@@ -1,0 +1,84 @@
+<!html>
+<html>
+<head>
+	<title>SHARP HT-SBW160</title>
+	<meta charset="utf8" />
+	<script src="https://kit.fontawesome.com/f0900af451.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<style>
+		html,body{
+			padding:    5px;
+			background: black;
+			color:      #ccc;
+		}
+		h1{
+			font-size:  72px;
+			margin:     10px;
+		}
+		td{
+			width:      200px;
+			height:     200px;
+			background: #ccc;
+			color:      black;
+			border:     2px solid black;
+			font-size:  100px;
+
+		}
+		td.none{
+			background: black;
+		}
+		td.frequent{
+			background: #cec;
+		}
+		td a{
+			padding: 10px;
+		}
+	</style>
+</head>
+<body>
+	<center>
+	<h1>SHARP</h1>
+	<table>
+		<tr>
+			<td class="frequent"><center><a onclick='sendSignal("power")'><i class="fas fa-power-off"></i></a></center></td>
+			<td class="frequent"><center><a onclick='sendSignal("optical")'><i class="fas fa-laptop-code"></i></i></a></center></td>
+			<td><center><a onclick='sendSignal("mute")'><i class="fas fa-volume-mute"></i></a></center></td>
+		</tr>
+		<tr>
+			<td><center><a onclick='sendSignal("aux")'><i class="fas fa-microphone-alt"></i></a></center></td>
+			<td><center><a onclick='sendSignal("bt")'><i class="fab fa-bluetooth-b"></i></a></center></td>
+			<td class="frequent"><center><a onclick='sendSignal("hdmi")'><i class="fas fa-tv"></i></a></center></td>
+		</tr>
+		<tr>
+			<td class="none"></td>
+			<td><center><a onclick='sendSignal("up")'><i class="fas fa-volume-up"></i></a></center></td>
+			<td class="none"></td>
+		</tr>
+		<tr>
+			<td><center><a onclick='sendSignal("left")'><i class="fas fa-backward"></i></a></center></td>
+			<td><center><a onclick='sendSignal("playpause")'><i class="fas fa-play"></i></a></center></td>
+			<td><center><a onclick='sendSignal("right")'><i class="fas fa-forward"></i></a></center></td>
+		</tr>
+		<tr>
+			<td class="none"></td>
+			<td><center><a onclick='sendSignal("down")'><i class="fas fa-volume-down"></i></a></center></td>
+			<td class="none"></td>
+		</tr>
+		<tr>
+			<td><center><a onclick='sendSignal("news")'><i class="far fa-newspaper"></i></a></center></td>
+			<td class="frequent"><center><a onclick='sendSignal("movie")'><i class="fas fa-film"></i></a></center></td>
+			<td class="frequent"><center><a onclick='sendSignal("music")'><i class="fas fa-music"></i></a></center></td>
+		</tr>
+	</table>
+	</center>
+
+	<script>
+		function sendSignal(signal){
+			$.get("/send/"+signal, function(data) {
+
+			});
+		}
+
+	</script>
+</body>
+</html>

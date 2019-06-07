@@ -1,0 +1,15 @@
+[Unit]
+Description=SharpRemoteWebGUI
+After=syslog.target
+After=network.target
+
+[Service]
+RestartSec=5s
+Type=simple
+User=www
+WorkingDirectory=/srv/sharp/
+ExecStart=/usr/bin/python3 /srv/sharp/sharp.py 
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
