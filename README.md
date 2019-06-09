@@ -7,5 +7,12 @@ Very simple Web GUI for controlling LIRC which controls Sharp Soundbar over infr
 * `lircd.conf` - use irrecord or browse internet
 * `sharp.service` - systemd service file
 
+## Keepalive
+Sharp soundbar goes automatically to sleep which can be annoying. With keepalive function script sends volume down then wolume up signals which prevents autosleep. Enable/disable with GUI. You'll need this in cron:
+
+```
+*/2 * * * * /usr/bin/curl -s http://localhost:8080/keepalive
+```
+
 ## Demo
 ![](demo.jpg)

@@ -70,14 +70,34 @@
 			<td class="frequent"><center><a onclick='sendSignal("music")'><i class="fas fa-music"></i></a></center></td>
 		</tr>
 	</table>
+	<br />
+	<button onClick='changeKeepalive("enable")'>enable keepalive</button>
+	|
+	<button onClick='changeKeepalive("disable")'>allow device to autosleep</button>
+
 	</center>
 
 	<script>
+		function checkError(data){
+			if (data.error!="0") return true;
+			else return false;
+		}
+
 		function sendSignal(signal){
 			$.get("/send/"+signal, function(data) {
-
+				if (checkError(data)){
+					alert("Failed to send signal.")
+				}
 			});
 		}
+		function changeKeepalive(signal){
+			$.get("/setkeepalive/"+signal, function(data) {
+				if (checkError(data)){
+					alert("Failed to change keepalive.")
+				}
+			});
+		}
+
 
 	</script>
 </body>
